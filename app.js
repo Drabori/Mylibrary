@@ -1,13 +1,16 @@
+//app.js
 var createError = require('http-errors');
 const express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const expressLayouts = require('express-ejs-layouts');
+const bodyParser = require('body-parser')
 
 
 const indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const usersRouter = require('./routes/users');
+
 
 const mongoose = require('mongoose')
 mongoose.connect('mongodb+srv://drabori:12345@help.8rbtpcu.mongodb.net/?retryWrites=true&w=majority&appName=help' )
@@ -28,6 +31,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(bodyParser.urlencoded({ limit: '10mb', extende: false}))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
