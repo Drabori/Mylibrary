@@ -1,0 +1,43 @@
+<!--views\doacoes\_form_fields.ejs-->
+
+<!-- INSERIR NOME UTILIZADOR-->
+<div>
+    <label>User</label>
+    <!--Gera lista de users-->
+    <select name="user">
+        <% users.forEach(user => { %>
+        <% if (user.id === doacao.user) { %>
+    <option selected label="<%= user.name %>" value="<%= user.id %> ">
+        <% } else { %>
+    <option label="<%= user.name %>" value="<%= user.id %> ">
+        <% } %>
+        <% }) %>
+</select>
+</div>
+
+<!-- INSERIR A DATA DA DOACAO-->
+<div>
+    <label>Data Doacao</label>
+        <input type="date" name="data" 
+            value="<%= doacao.data == null ? '': 
+            doacao.data.toISOString().split('T')[0] %>"> <!--Passar para String a data-->
+</div>
+
+<!--INSERIR A QUANTIDADE DE DOACAO-->
+<div>
+    <label>Preco</label>
+        <input type="number" name="preco" min="1" value="<%= doacao.preco  %>">
+</div>
+
+<!-- INSERIR LOGO EMPRESA-->
+<div>
+    <label>companyLogo</label>
+        <input type="file" name="logo">
+</div>
+
+<!--INSERIR OBSERVAÇOES-->
+<div>
+    <label>Observacoes</label>
+        <textarea name="observacoes"><%= doacao.observacoes %></textarea>
+</div>
+

@@ -1,0 +1,21 @@
+<h2>Procurar Doacao</h2>
+<form action="/doacoes" method="GET">
+  <div>
+    <label>User</label>
+    <input type="text" name="user" value="<%= searchOptions.user %>">
+  </div>
+  <div>
+    <label>date After</label>
+    <input type="date" name="dataAfter" value="<%= searchOptions.dataAfter %>">
+  </div>
+  <div>
+    <label>date Before</label>
+    <input type="date" name="dataBefore" value="<%= searchOptions.dataBefore %>">
+  </div>
+  <button type="submit">Search</button>
+</form>
+<div>
+  <% doacoes.forEach(doacao => { %>
+    <img height="150" width="100" src="<%= doacao.coverImagePath %>">
+  <% }) %>
+</div>

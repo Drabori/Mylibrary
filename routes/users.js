@@ -5,8 +5,11 @@ const User = require("../models/user");
 
 //Todos utilizadores
 router.get("/", async (req, res) => {
+  //Cria array para pesquisar
   let searchOptions = {};
+  //Verifica se name existe
   if (req.query.name != null && req.query.name !== "") {
+    //RegExp -> tanto pode ser Maiuscula ou minuscula
     searchOptions.name = new RegExp(req.query.name, "i");
   }
   try {
@@ -31,7 +34,7 @@ router.post("/", async (req, res) => {
   try {
     const newUser = await user.save();
     // res.redirect(`users/${newUser.id}`)
-    res.redirect(`users`);
+    res.redirect('users');
   } catch {
     res.render("users/new", {
       user: user,

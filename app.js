@@ -5,11 +5,12 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const expressLayouts = require('express-ejs-layouts');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser') //Ajuda o acesso ao diferentes inputs do server
 
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const doacoesRouter = require('./routes/doacoes');
 
 
 const mongoose = require('mongoose')
@@ -31,10 +32,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({ limit: '10mb', extende: false}))
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: false}))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/doacoes', doacoesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

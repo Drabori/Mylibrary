@@ -1,1 +1,8 @@
-middle
+<!-- views\index.ejs-->
+<h2>Recently Added</h2>
+<div>
+  <% doacoes.forEach(doacao => { %>
+    <!--Para exibir o logotipo da empresa -->
+    <img height="150" width="100" src="<%= doacao.coverImagePath %>">
+  <% }) %>
+</div>
