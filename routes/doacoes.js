@@ -52,7 +52,18 @@ router.post("/", upload.single('logo'), async (req, res) => {
     console.log(req.file)
 
     const fileName = req.file != null ?  req.file.filename : null;
+    /*
+        // Remova espacos em branco do userID
+    const userId = req.body.user.trim();
+
+    // Verifique se userId e um ObjectId valido
+    if (!userId.match(/^[0-9a-fA-F]{24}$/)) {
+        console.error('UserID invalido:', userId);
+        return res.status(400).send('UserID invalido.');
+    }
+    */
     const doacao = new Doacao({
+        //user: userId,
         user: req.body.user,
         preco: req.body.preco,
         data: new Date(req.body.data),
