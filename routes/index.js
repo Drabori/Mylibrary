@@ -1,18 +1,19 @@
 //routes\index.js
 const express = require('express');
 const router = express.Router();
-//GET model/doacao
-const Doacao = require('../models/doacao') 
+
+//GET model/entidades
+const Entidade = require('../models/entidade') 
 
 /* GET home page. */
 router.get('/', async (req, res)=> {
-  let doacoes
+  let entidades
   try{
-    doacoes = await Doacao.find().sort({createdAt: 'desc'}).limit(10).exec()
+    entidades = await entidade.find().sort({createdAt: 'desc'}).limit(10).exec()
   }catch{
-    doacoes = []
+    entidades = []
   }
-  res.render('index', {doacoes: doacoes})
+  res.render('index', {entidades: entidades})
 });
 
 module.exports = router;

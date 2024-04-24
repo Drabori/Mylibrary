@@ -1,8 +1,8 @@
 <!-- views\index.ejs-->
 <h2>Recently Added</h2>
 <div>
-  <% doacoes.forEach(doacao => { %>
+  <% entidades.forEach(entidade => { %>
     <!--Para exibir o logotipo da empresa -->
-    <img height="150" width="100" src="<%= doacao.coverImagePath %>">
+    <img height="150" width="100" src="<%= entidade.coverImagePath %>">
   <% }) %>
 </div>

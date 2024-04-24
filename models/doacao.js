@@ -1,8 +1,5 @@
 //models\doacao.js
 const mongoose = require('mongoose')
-const path = require('path')
-//Define caminho onde sao armazenados os logotipos
-const companyLogoBasePath = 'uploads/companyLogos'
 
 const doacaoSchema = new mongoose.Schema({
     //Nome Doador
@@ -27,22 +24,10 @@ const doacaoSchema = new mongoose.Schema({
         required:true,
         default:Date.now
     },
-    //logo Empresa
-    companyLogo:{
-        type:String,
-        required:true
-    },
+    //Observacoes
     observacoes: {
         type: String
-      }
-    })
-
-    //Retorna caminho para logo empresa da doacao
-    doacaoSchema.virtual('coverImagePath').get(function() {
-      if (this.companyLogo != null) {
-          return path.join('/', companyLogoBasePath, this.companyLogo);
       }
 })
 
 module.exports = mongoose.model('Doacao', doacaoSchema)
-module.exports.companyLogoBasePath = companyLogoBasePath

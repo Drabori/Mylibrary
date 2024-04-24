@@ -1,0 +1,9 @@
+<!--views\entidades\new.ejs -->
+<h2>Nova Entidade</h2>
+<!-- enctype="multipart/form-data"> Serve ir buscar logos!-->
+<form action="/entidades" method = "POST" enctype="multipart/form-data">
+    <!-- Vou utilizar o mesmo para a edicao -->
+    <%- include('_form_fields') %>
+    <a href="/entidades">Cancel</a>
+    <button type="submit">Create</button>
+</form>

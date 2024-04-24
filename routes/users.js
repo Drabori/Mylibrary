@@ -12,6 +12,7 @@ router.get("/", async (req, res) => {
     //RegExp -> tanto pode ser Maiuscula ou minuscula
     searchOptions.name = new RegExp(req.query.name, "i");
   }
+  
   try {
     const users = await User.find(searchOptions);
     res.render("users/index", { users: users, searchOptions: req.query });

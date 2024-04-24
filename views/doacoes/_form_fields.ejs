@@ -2,7 +2,7 @@
 
 <!-- INSERIR NOME UTILIZADOR-->
 <div>
-    <label>User</label>
+    <label>Doador</label>
     <!--Gera lista de users-->
     <select name="user">
         <% users.forEach(user => { %>
@@ -14,7 +14,9 @@
         <% }) %>
 </select>
 </div>
-
+<div>
+    <label>Entidade (Falta fazer)</label>
+</div>
 <!-- INSERIR A DATA DA DOACAO-->
 <div>
     <label>Data Doacao</label>
@@ -25,14 +27,8 @@
 
 <!--INSERIR A QUANTIDADE DE DOACAO-->
 <div>
-    <label>Preco</label>
+    <label>Quantidade</label>
         <input type="number" name="preco" min="1" value="<%= doacao.preco  %>">
-</div>
-
-<!-- INSERIR LOGO EMPRESA-->
-<div>
-    <label>companyLogo</label>
-        <input type="file" name="logo">
 </div>
 
 <!--INSERIR OBSERVAÇOES-->
