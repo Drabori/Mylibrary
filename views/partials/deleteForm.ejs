@@ -1,0 +1,6 @@
+<!-- views\partials\deleteForm.ejs-->
+<!-- <%= url %> Aqui vamos passar 1 url especifica para dar delete-->
+<form method="POST" action="<%= url %>?_method=DELETE">
+  <!--Vai usar o POST, mas ao ver que estamos a usar _method vai trocar por delete-->
+  <button type="submit">Delete</button>
+</form>

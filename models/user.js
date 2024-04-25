@@ -1,12 +1,12 @@
 //models\user.js
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
+const Doacao = require("./doacao");
 
 const userSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    }
-    
-})
+  name: {
+    type: String,
+    required: true,
+  },
+});
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.model("User", userSchema);

@@ -2,17 +2,23 @@
 <h2>Search Users</h2>
 <form action="/users" method="GET">
   <label>Name</label>
-  <input type="text" name="name" value="<%= searchOptions.name %> "/>
+  <input type="text" name="name" value="<%= searchOptions.name %> " />
   <button type="submit">Search</button>
 </form>
-<br>
+<br />
+
 <!-- Exibir cada user-->
 <% users.forEach (user => { %>
-    <div><%= user.name %></div>
-    <% }) %>
+<div><%= user.name %></div>
+<a href="/users/<%= user.id %>">View</a>
+<a href="/users/<%= user.id %>/edit">Edit</a>
+<%- include("../partials/deleteForm", { url: `/users/${user.id}` }) %>
+ <% }) %>
+
 <!-- Exibir cada user por tipo~
 <% users.forEach (user => { %>
     <div><%= user.email %></div>
     <% }) %>
 
 -->
+<!--Vai incluir o partials em deleteForm e vamos mandar nos o url-->

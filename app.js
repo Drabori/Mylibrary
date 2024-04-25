@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const expressLayouts = require('express-ejs-layouts');
 const bodyParser = require('body-parser') //Ajuda o acesso ao diferentes inputs do server
-
+const methodOverride = require('method-override')//Permite usar o put e o delete
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -33,6 +33,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(methodOverride('_method'))
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false}))
 
