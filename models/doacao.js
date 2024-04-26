@@ -8,6 +8,11 @@ const doacaoSchema = new mongoose.Schema({
         required: true,
         ref: 'User'
     },
+    //Futura Entidade
+    entidade: {
+        type: String,
+        required: true,
+    },
     //Quanto vai doar
     preco:{
         type: Number,

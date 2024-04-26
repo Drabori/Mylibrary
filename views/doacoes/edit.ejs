@@ -1,0 +1,7 @@
+<!--views\doacoes\edit.ejs -->
+<h2>Edit Doacao</h2>
+<form action="/doacoes/<%= doacao.id %>?_method=PUT" method="POST">
+    <%- include('_form_fields') %>
+    <a href="/doacoes">Cancel</a>
+    <button type="submit">Update</button>
+</form>

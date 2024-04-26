@@ -1,5 +1,4 @@
 <!--views\doacoes\_form_fields.ejs-->
-
 <!-- INSERIR NOME UTILIZADOR-->
 <div>
     <label>Doador</label>
@@ -14,8 +13,11 @@
         <% }) %>
 </select>
 </div>
+
+<!--INSERIR A ENTIDADE-->
 <div>
-    <label>Entidade (Falta fazer)</label>
+    <label>Entidade</label>
+    <input type="text" name="entidade" value=" <%= doacao.entidade %>" />
 </div>
 <!-- INSERIR A DATA DA DOACAO-->
 <div>
@@ -24,7 +26,6 @@
             value="<%= doacao.data == null ? '': 
             doacao.data.toISOString().split('T')[0] %>"> <!--Passar para String a data-->
 </div>
-
 <!--INSERIR A QUANTIDADE DE DOACAO-->
 <div>
     <label>Quantidade</label>
