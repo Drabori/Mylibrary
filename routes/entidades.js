@@ -66,6 +66,7 @@ router.post("/", upload.single("logo"), async (req, res) => {
     res.redirect("entidades");
   } catch (error) {
     console.error(error);
+    
     if (entidade.fileName != null) {
       removeLogo(entidade.fileName);
     }

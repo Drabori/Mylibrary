@@ -9,6 +9,7 @@ const User = require("../models/user");
 router.get("/", async (req, res) => {
   //Cria array para pesquisar
   let searchOptions = {};
+  
   //Verifica se name existe
   if (req.query.name != null && req.query.name !== "") {
     //RegExp -> tanto pode ser Maiuscula ou minuscula
@@ -98,20 +99,19 @@ router.delete("/:id", async (req, res) => {
     if (!user) {
       return res.redirect("/");
     }
-    
+
     const doacoes = await Doacao.find({ user: user.id });
     if (doacoes.length > 0) {
       return res.redirect(`/users/${user.id}`);
     }
-    
+
     await User.deleteOne({ _id: req.params.id });
     res.redirect("/users");
-  } catch(err) {
+    
+  } catch (err) {
     console.error("Error deleting user:", err);
     res.redirect("/");
   }
 });
 
-
 module.exports = router;
-

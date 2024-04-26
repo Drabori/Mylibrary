@@ -1,40 +1,58 @@
 <!--views\doacoes\_form_fields.ejs-->
 <!-- INSERIR NOME UTILIZADOR-->
 <div>
-    <label>Doador</label>
-    <!--Gera lista de users-->
-    <select name="user">
-        <% users.forEach(user => { %>
-        <% if (user.id === doacao.user) { %>
-    <option selected label="<%= user.name %>" value="<%= user.id %> ">
-        <% } else { %>
-    <option label="<%= user.name %>" value="<%= user.id %> ">
-        <% } %>
-        <% }) %>
-</select>
+  <label>Doador</label>
+  <!--Gera lista de users-->
+  <select name="user">
+    <% users.forEach(user => { %> <% if (user.id === doacao.user) { %>
+    <option selected label="<%= user.name %>" value="<%= user.id %>">
+      <% } else { %>
+    </option>
+
+    <option label="<%= user.name %>" value="<%= user.id %>">
+      <% } %> <% }) %>
+    </option>
+  </select>
 </div>
 
 <!--INSERIR A ENTIDADE-->
 <div>
-    <label>Entidade</label>
-    <input type="text" name="entidade" value=" <%= doacao.entidade %>" />
+  <label>Entidade</label>
+  <select name="entidade">
+    <% entidades.forEach(entidade => { %> <% if (entidade.id ===
+    doacao.entidade) { %>
+    <option selected label="<%= entidade.name %>" value="<%= entidade.id %>">
+      <% } else { %>
+    </option>
+
+    <option label="<%= entidade.name %>" value="<%= entidade.id %>">
+      <% } %> <% }) %>
+    </option>
+  </select>
+
+  <!--<input type="text" name="entidade" value=" <%= doacao.entidade %>" />-->
 </div>
+
 <!-- INSERIR A DATA DA DOACAO-->
 <div>
-    <label>Data Doacao</label>
-        <input type="date" name="data" 
-            value="<%= doacao.data == null ? '': 
-            doacao.data.toISOString().split('T')[0] %>"> <!--Passar para String a data-->
+  <label>Data Doacao</label>
+  <input
+    type="date"
+    name="data"
+    value="<%= doacao.data == null ? '': 
+            doacao.data.toISOString().split('T')[0] %>"
+  />
+  <!--Passar para String a data-->
 </div>
+
 <!--INSERIR A QUANTIDADE DE DOACAO-->
 <div>
-    <label>Quantidade</label>
-        <input type="number" name="preco" min="1" value="<%= doacao.preco  %>">
+  <label>Quantidade</label>
+  <input type="number" name="preco" min="1" value="<%= doacao.preco  %>" />
 </div>
 
-<!--INSERIR OBSERVAÇOES-->
+<!--INSERIR OBSERVACOES-->
 <div>
-    <label>Observacoes</label>
-        <textarea name="observacoes"><%= doacao.observacoes %></textarea>
+  <label>Observacoes</label>
+  <textarea name="observacoes"><%= doacao.observacoes %></textarea>
 </div>
-

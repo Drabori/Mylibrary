@@ -1,12 +1,12 @@
 <!--views\users\show.ejs-->
 <h2><%= user.name %></h2>
-<a href="/users/<%= user.id %>/edit">Edit</a>
-<%- include('../partials/deleteForm',
-     { url: `/users/${user.id}` }) %>
-<% if (doacoesByUser.length > 0) { %>
-    <h2>Doacoes por Utilizador</h2>
-    <% doacoesByUser.forEach(doacao => { %>
-        <img height="150" width="100" src="<%= doacao.coverImagePath %>">
-    <% }) %>
-<% } %>
 
+<a href="/users/<%= user.id %>/edit">Edit</a>
+<%- include('../partials/deleteForm', { url: `/users/${user.id}` }) %>
+<% if (doacoesByUser.length > 0) { %>
+
+<h2>Doacoes por Utilizador</h2>
+
+<% doacoesByUser.forEach(doacao => { %>
+<img height="150" width="100" src="<%= doacao.coverImagePath %>" />
+<% }) %> <% } %>

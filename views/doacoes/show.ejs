@@ -1,13 +1,12 @@
-<h2>Detalhes da Doação</h2>
+<h2>Detalhes da Doacao</h2>
 
 <div>Doador: <%= doacao.user.name %></div>
-    <div>Entidade: <%= doacao.entidade %></div>
-    <div>Data: <%= doacao.data %></div>
-    <div>Quantidade: <%= doacao.preco %></div>
-  <div>Observacoes: <%= doacao.observacoes %></div>
-
+<div>Entidade: <%= doacao.entidade %></div>
+<div>Data: <%= doacao.data %></div>
+<div>Quantidade: <%= doacao.preco %></div>
+<div>Observacoes: <%= doacao.observacoes %></div>
 
 <a href="/doacoes/<%= doacao.id %>/edit">Edit</a>
-<%- include('../partials/deleteForm',
-{ url: `/doacoes/${doacao.id}` }) %>
-<a href="/doacoes/<%= doacao.user.id %>">Ver Doador</a>
+<%- include('../partials/deleteForm', { url: `/doacoes/${doacao.id}` }) %>
+<a href="/users/<%= doacao.user.id %>">Ver Doador</a>
+<a href="/entidades/<%= doacao.entidade.id %>">Ver Entidade</a>

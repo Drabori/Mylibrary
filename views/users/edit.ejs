@@ -1,5 +1,6 @@
 <!--views\users\edit.ejs -->
 <h2>Edit User</h2>
+
 <form action="/users/<%= user.id %>?_method=PUT" method = "POST">
     <!-- Vou utilizar o mesmo para a edicao -->
     <%- include('_form_fields') %>

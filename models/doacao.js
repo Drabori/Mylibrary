@@ -10,8 +10,9 @@ const doacaoSchema = new mongoose.Schema({
     },
     //Futura Entidade
     entidade: {
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
         required: true,
+        ref: 'Entidade'
     },
     //Quanto vai doar
     preco:{

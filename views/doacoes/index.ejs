@@ -4,18 +4,22 @@
     <label>User</label>
     <input type="text" name="user" value="<%= searchOptions.user %>">
   </div>
+
   <div>
     <label>Entidade</label>
     <input type="text" name="entidade" value="<%= searchOptions.entidade %>">
   </div>
+
   <div>
     <label>date After</label>
     <input type="date" name="dataAfter" value="<%= searchOptions.dataAfter %>">
   </div>
+
   <div>
     <label>date Before</label>
     <input type="date" name="dataBefore" value="<%= searchOptions.dataBefore %>">
   </div>
+  
   <button type="submit">Search</button>
 </form>
 
@@ -23,8 +27,8 @@
 
   <% doacoes.forEach (doacao => { %>
     <div class="doacao-item">
-      <p>Entidade: <%= doacao.entidade %></p>
       <p>Doador: <%= doacao.user.name %></p>
+      <p>Entidade: <%= doacao.entidade.name %></p>
       <p>Data: <%= doacao.data %></p>
       <p>Quantidade: <%= doacao.preco %></p>
       <a href="/doacoes/<%= doacao.id %>">Detalhes</a>
