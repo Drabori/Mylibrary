@@ -25,6 +25,6 @@ const entidadeSchema = new mongoose.Schema({
             return path.join('/', companyLogoBasePath, this.companyLogo);
         }
   })
-
 module.exports = mongoose.model('Entidade', entidadeSchema)
 module.exports.companyLogoBasePath = companyLogoBasePath
+

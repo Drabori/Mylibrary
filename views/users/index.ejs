@@ -15,11 +15,4 @@
 <a href="/users/<%= user.id %>/edit">Edit</a>
 <%- include("../partials/deleteForm", { url: `/users/${user.id}` }) %>
  <% }) %>
-
-<!-- Exibir cada user por tipo~
-<% users.forEach (user => { %>
-    <div><%= user.email %></div>
-    <% }) %>
-
--->
 <!--Vai incluir o partials em deleteForm e vamos mandar nos o url-->

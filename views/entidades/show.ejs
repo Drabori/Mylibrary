@@ -1,0 +1,18 @@
+<!--views\entidades\show.ejs-->
+<h2><%= entidade.name %></h2>
+
+<div>Nome: <%= entidade.name %></div>
+<div>email: <%= entidade.email %></div>
+<div>
+    <% if (entidade.companyLogo) { %>
+        <img src="/uploads/companyLogos/<%= entidade.companyLogo %>"
+        alt="Company Logo" style="width:100px;height:auto;">
+    <% } else { %>
+        <p>No logo</p>
+    <% } %> 
+</div>
+
+<a href="/entidades/<%= entidade.id %>/edit">Edit</a>
+
+<%- include('../partials/deleteForm', { url: `/entidades/${entidade.id}` }) %>
+

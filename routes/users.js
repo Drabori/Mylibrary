@@ -31,6 +31,7 @@ router.get("/new", (req, res) => {
 
 // Create User Route
 router.post("/", async (req, res) => {
+  
   const user = new User({
     name: req.body.name,
   });
@@ -51,6 +52,7 @@ router.get("/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     const doacoes = await Doacao.find({ user: user.id }).limit(6).exec();
+    //Mostrar Pontos do user
     res.render("users/show", {
       user: user,
       doacoesByUser: doacoes,
@@ -61,7 +63,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-//Editar user
+//Editar user Route
 router.get("/:id/edit", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);

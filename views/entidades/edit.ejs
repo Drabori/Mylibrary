@@ -1,0 +1,10 @@
+<!--views\entidade\edit.ejs -->
+<h2>Edit Entidade</h2>
+
+<form action="/entidades/<%= entidade.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+    <%- include('_form_fields') %>
+    <a href="/entidades">Cancel</a>
+    <button type="submit">Update</button>
+</form>
+
+
