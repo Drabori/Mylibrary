@@ -59,6 +59,7 @@ router.post("/", async (req, res) => {
     user: userId,
     entidade: entidadeId, 
     preco: req.body.preco,
+    estado: req.body.estado,
     data: new Date(req.body.data),
     observacoes: req.body.observacoes,
   });
@@ -111,6 +112,7 @@ router.put("/:id", async (req, res) => {
         user: req.body.user.trim(),
         entidade: req.body.user.trim(), //ACRESCENTEI
         preco: req.body.preco,
+        estado: req.body.estado,
         data: new Date(req.body.data),
         observacoes: req.body.observacoes,
       },

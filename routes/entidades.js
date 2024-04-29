@@ -83,6 +83,7 @@ router.post("/", upload.single("logo"), async (req, res) => {
     }
   });
 
+
 //Edit Entidade Route
 router.get("/:id/edit", async (req, res) => {
   try {
@@ -92,6 +93,7 @@ router.get("/:id/edit", async (req, res) => {
     res.redirect("/entidades");
   }
 });
+
 
 //Update Entidade Route
 router.put("/:id", upload.single("logo"), async (req, res) => {
@@ -109,6 +111,7 @@ router.put("/:id", upload.single("logo"), async (req, res) => {
 
     await entidade.save();
     res.redirect(`/entidades/${entidade.id}`);
+    
   } catch  {
     if (entidade == null){
       res.redirect("/");

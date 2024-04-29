@@ -34,12 +34,16 @@ router.post("/", async (req, res) => {
   
   const user = new User({
     name: req.body.name,
+    email: req.body.email,
+    role: req.body.role,
+    points: req.body.points
   });
 
   try {
     const newUser = await user.save();
     res.redirect(`users/${newUser.id}`);
-  } catch {
+  } catch (err){
+    console.log(err)
     res.render("users/new", {
       user: user,
       errorMessage: "Error creating Author",
@@ -79,6 +83,9 @@ router.put("/:id", async (req, res) => {
   try {
     user = await User.findById(req.params.id);
     user.name = req.body.name;
+    user.email = req.body.email;
+    user.role = req.body.role;
+    user.points = req.body.points;
     await user.save();
     res.redirect(`/users/${user.id}`);
   } catch {

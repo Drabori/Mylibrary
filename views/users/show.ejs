@@ -1,5 +1,11 @@
 <!--views\users\show.ejs-->
-<h2><%= user.name %></h2>
+<a href="/admin">Home</a>
+<h2>Detalhes Utilizador</h2>
+
+<div>Nome: <%= user.name %></div>
+<div>Email: <%= user.email %></div>
+<div>Role: <%= user.role %></div>
+<div>Points: <%= user.points %></div>
 
 <a href="/users/<%= user.id %>/edit">Edit</a>
 <%- include('../partials/deleteForm', { url: `/users/${user.id}` }) %>

@@ -5,9 +5,22 @@
 </div>
 
 <div>
-    <label>Email (Falta fazer)</label>
+  <label>Email</label>
+  <input type="email" name="email" value="<%= user.email %>" />
 </div>
 
 <div>
-    <label>Tipo (Falta fazer)</label>
+    <label for="role">Tipo</label>
+    <select name="role">
+      <option>Doador</option>
+      <option>Funcionario</option>
+      <option>Admin</option>
+    </select>
 </div>
+
+<div>
+  <label>Pontos</label>
+  <input type="number" name="points" min=0 value="<%= user.points %>" />
+</div>
+
+

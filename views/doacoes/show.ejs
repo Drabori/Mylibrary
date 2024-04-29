@@ -1,9 +1,12 @@
 <!--views\doacoes\show.ejs -->
+<a href="/admin">Home</a>
+
 <h2>Detalhes da Doacao</h2>
 
 <div>Doador: <%= doacao.user.name %></div>
 <div>Entidade: <%= doacao.entidade %></div>
 <div>Data: <%= doacao.data %></div>
+<div>Estado: <%= doacao.estado %></div>
 <div>Quantidade: <%= doacao.preco %></div>
 <div>Observacoes: <%= doacao.observacoes %></div>
 

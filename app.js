@@ -8,10 +8,14 @@ const expressLayouts = require('express-ejs-layouts');
 const bodyParser = require('body-parser') //Ajuda o acesso ao diferentes inputs do server
 const methodOverride = require('method-override')//Permite usar o put e o delete
 
+const authRouter = require('./routes/auth');
 const indexRouter = require('./routes/index');
+
+const adminRouter = require('./routes/admin')
 const usersRouter = require('./routes/users');
 const doacoesRouter = require('./routes/doacoes');
 const entidadesRouter = require('./routes/entidades');
+
 
 
 //Ligacao ao mongoDB
@@ -37,11 +41,14 @@ app.use(methodOverride('_method'))
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ limit: '10mb', extended: false}))
 
+app.use('/', authRouter);
+app.use('/', indexRouter)
 
-app.use('/', indexRouter);
+app.use('/admin', adminRouter);
 app.use('/users', usersRouter);
 app.use('/doacoes', doacoesRouter);
 app.use('/entidades', entidadesRouter);
+
 
 
 // catch 404 and forward to error handler
@@ -61,3 +68,4 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+

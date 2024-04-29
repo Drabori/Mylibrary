@@ -33,7 +33,10 @@ const doacaoSchema = new mongoose.Schema({
     //Observacoes
     observacoes: {
         type: String
-      }
+      },
+      estado: {
+        type: String,
+         enum: ['Inicio', 'Curso','Cancelado', 'Fim'], default: 'Inicio' },
 })
 
 module.exports = mongoose.model('Doacao', doacaoSchema)
